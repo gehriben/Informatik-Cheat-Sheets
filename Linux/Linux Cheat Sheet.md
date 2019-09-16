@@ -585,4 +585,52 @@ Die Kernel Version einsehen
 
     kali >uname -a
 
+Kernel log ansehen
+
+    kali >dmesg
+
 ### Kernel konfigurieren
+In der Datei *sysctl* lassen sich diverse Kernel Einstellungen anpassen
+
+    kali >sysctl -a | less
+    dev.cdrom.autoclose = 1
+    dev.cdrom.autoeject = 0
+    dev.cdrom.check_media = 0
+    dev.cdrom.debug = 0
+    --snip--
+
+### Kernel Module verwalten
+Alle aktuelle Module im Kernel auflisten:
+
+    kali >lsmod
+    Module                        Size       Used by
+    nfnetlink_queue               20480      0
+    nfnetlink_log                 201480     0
+    nfnetlink                     16384      2 nfnetlink_log, nfnetlink_queue
+    bluetooth                     516096     0
+    rfkill                        0          2 bluetooth
+    --snip--
+
+Folgender Befehl zeigt mehr Informationen über ein Modul an (hier Bluetooth):
+
+    kali >modinfo bluetooth
+    filename:   /lib/modules/4.6.0-kali-amd64/kernel/net/bluetooth/bluetooth.ko
+    alias:      net-pf-31
+    license:    GPL
+    version:    2.21
+    description:Bluetooth Core ver 2.21
+    author:     Marcel Holtman <marcel@holtmann.org>
+    srcversion: FCFDE98577FEA911A3DAFA9
+    depends:    rfkill, crc16
+    intree:     Y
+    vermagic:   4.6.0-kali1-amd64  SMP mod_unload modversions
+    parm:       disable_esco: Disable eSCO connection creation (bool)
+    parm:       disable_ertm: Disable enhanced retransmission mode (bool)
+
+Ein Modul zum Kernel hinzufügen:
+
+    kali >modprobe -a <module name>
+
+Ein Modul aus dem Kernel entfernen:
+
+    kali >modprobe -r <module to be removed>
