@@ -3,7 +3,7 @@ Ein Cheat Sheet für diverse Linux Befehle
 
 ## Inhaltsverzeichnis
 
-* 1. [Basiskommandos](#Basiskommandos)
+1. [Basiskommandos](#Basiskommandos)
 	* 1.1. [Aktueller Ordnerstandort](#AktuellerOrdnerstandort)
 	* 1.2. [Angemeldeter Benutzer](#AngemeldeterBenutzer)
 * 2. [Dateinavigation](#Dateinavigation)
