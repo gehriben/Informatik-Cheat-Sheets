@@ -3,9 +3,9 @@ Ein Cheat Sheet für diverse Linux Befehle
 
 ## Inhaltsverzeichnis
 
-1. [Basiskommandos](#Basiskommandos)
-	* 1.1. [Aktueller Ordnerstandort](#AktuellerOrdnerstandort)
-	* 1.2. [Angemeldeter Benutzer](#AngemeldeterBenutzer)
+1. [Basiskommandos](#Basiskommandos) <br>
+	1.1. [Aktueller Ordnerstandort](#AktuellerOrdnerstandort) <br>
+	1.2. [Angemeldeter Benutzer](#AngemeldeterBenutzer)
 2. [Dateinavigation](#Dateinavigation)
 	* 2.1. [Ordner wechseln](#Ordnerwechseln)
 	* 2.2. [Ordnerinhalt auflisten](#Ordnerinhaltauflisten)
