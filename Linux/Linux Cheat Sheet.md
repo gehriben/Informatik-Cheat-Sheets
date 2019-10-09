@@ -1,25 +1,131 @@
 # Linux Cheat Sheet
 Ein Cheat Sheet für diverse Linux Befehle
 
+## Inhaltsverzeichnis
 
+* 1. [Basiskommandos](#Basiskommandos)
+	* 1.1. [Aktueller Ordnerstandort](#AktuellerOrdnerstandort)
+	* 1.2. [Angemeldeter Benutzer](#AngemeldeterBenutzer)
+* 2. [Dateinavigation](#Dateinavigation)
+	* 2.1. [Ordner wechseln](#Ordnerwechseln)
+	* 2.2. [Ordnerinhalt auflisten](#Ordnerinhaltauflisten)
+* 3. [Hilfe erhalten](#Hilfeerhalten)
+	* 3.1. [Referenz Manual](#ReferenzManual)
+* 4. [Suche](#Suche)
+	* 4.1. [locate - Befehl](#locate-Befehl)
+	* 4.2. [whereis - Befehl](#whereis-Befehl)
+	* 4.3. [which - Befehl](#which-Befehl)
+	* 4.4. [find - Befehl](#find-Befehl)
+	* 4.5. [grep - Befehl](#grep-Befehl)
+* 5. [Files und Ordner modifizieren](#FilesundOrdnermodifizieren)
+	* 5.1. [File erstellen](#Fileerstellen)
+	* 5.2. [File anschauen](#Fileanschauen)
+	* 5.3. [Text zu Textfile hinzufügen](#TextzuTextfilehinzufgen)
+	* 5.4. [Ordner erstellen](#Ordnererstellen)
+	* 5.5. [File kopieren](#Filekopieren)
+	* 5.6. [File umbenennen](#Fileumbenennen)
+	* 5.7. [File löschen](#Filelschen)
+	* 5.8. [Ordner löschen](#Ordnerlschen)
+* 6. [Text Manipulation](#TextManipulation)
+	* 6.1. [Kopfzeilen anschauen](#Kopfzeilenanschauen)
+	* 6.2. [Fusszeilen anzeigen](#Fusszeilenanzeigen)
+	* 6.3. [Zeilen nummerieren](#Zeilennummerieren)
+	* 6.4. [Text mit grep Filtern](#TextmitgrepFiltern)
+	* 6.5. [Suchen und ersetzen](#Suchenundersetzen)
+	* 6.6. [Files mit more und less anschauen](#Filesmitmoreundlessanschauen)
+* 7. [Netwerkanalyse](#Netwerkanalyse)
+	* 7.1. [Netzwerkinformationen anzeigen](#Netzwerkinformationenanzeigen)
+	* 7.2. [Wirelessgerät kontrollieren](#Wirelessgertkontrollieren)
+	* 7.3. [IP Adresse ändern](#IPAdressendern)
+	* 7.4. [Netzwerkmaske und Broadcastadresse ändern](#NetzwerkmaskeundBroadcastadressendern)
+	* 7.5. [MAC Adresse ändern (spoofen)](#MACAdressendernspoofen)
+	* 7.6. [Neue IP vom DHCP anfordern](#NeueIPvomDHCPanfordern)
+	* 7.7. [DNS Informationen erhalten](#DNSInformationenerhalten)
+	* 7.8. [Eigener DNS Server ändern](#EigenerDNSServerndern)
+* 8. [Software installieren und löschen](#Softwareinstallierenundlschen)
+	* 8.1. [Ein Paket suchen](#EinPaketsuchen)
+	* 8.2. [Software hinzufügen](#Softwarehinzufgen)
+	* 8.3. [Software löschen](#Softwarelschen)
+	* 8.4. [Softwareliste aktualisiern](#Softwarelisteaktualisiern)
+	* 8.5. [Software aktualisiern](#Softwareaktualisiern)
+	* 8.6. [Weiter Repositorys hinzufügen](#WeiterRepositoryshinzufgen)
+* 9. [Berechtigungen kontrollieren](#Berechtigungenkontrollieren)
+	* 9.1. [Besitzerrechte an User vergeben](#BesitzerrechteanUservergeben)
+	* 9.2. [Besitzerrechte an Gruppe vergeben](#BesitzerrechteanGruppevergeben)
+	* 9.3. [Berechtigungen prüfen](#Berechtigungenprfen)
+	* 9.4. [Berechtigungen ändern](#Berechtigungenndern)
+* 10. [Prozess Management](#ProzessManagement)
+	* 10.1. [Prozesse anzeigen](#Prozesseanzeigen)
+	* 10.2. [Nach Prozessnamen filtern](#NachProzessnamenfiltern)
+	* 10.3. [Nach Ressourcenverbrauch sortieren](#NachRessourcenverbrauchsortieren)
+	* 10.4. [Prozesspriorität verwalten](#Prozesspriorittverwalten)
+	* 10.5. [Prozess töten](#Prozesstten)
+	* 10.6. [Prozess im Hintergrund laufen lassen](#ProzessimHintergrundlaufenlassen)
+	* 10.7. [Prozess wieder in Vordergrund bringen](#ProzesswiederinVordergrundbringen)
+	* 10.8. [Prozess schedulen](#Prozessschedulen)
+* 11. [Userumgebungsvariablen verwalten](#Userumgebungsvariablenverwalten)
+	* 11.1. [Variablen ansehen und modifizieren](#Variablenansehenundmodifizieren)
+	* 11.2. [Terminal Fenster ändern](#TerminalFensterndern)
+	* 11.3. [PATH Variable ändern](#PATHVariablendern)
+	* 11.4. [Eine Userdefinierte Variable erstellen](#EineUserdefinierteVariableerstellen)
+* 12. [Bash Scripting](#BashScripting)
+	* 12.1. [Beispielskripte](#Beispielskripte)
+	* 12.2. [Skripte ausführen](#Skripteausfhren)
+	* 12.3. [Nützliche Kommandos für bash](#NtzlicheKommandosfrbash)
+* 13. [Kompression](#Kompression)
+	* 13.1. [Files zu einem Archiv zusammenfügen](#FileszueinemArchivzusammenfgen)
+	* 13.2. [Filearchiv ansehen](#Filearchivansehen)
+	* 13.3. [Filearchiv extrahieren](#Filearchivextrahieren)
+	* 13.4. [Kompression mit gzip](#Kompressionmitgzip)
+	* 13.5. [Kompression mit bzip2](#Kompressionmitbzip2)
+	* 13.6. [Kompression mit compress](#Kompressionmitcompress)
+	* 13.7. [Bit-by-Bit Kopie einer Harddisk](#Bit-by-BitKopieeinerHarddisk)
+* 14. [Filesystem und Speichermanagement](#FilesystemundSpeichermanagement)
+	* 14.1. [Gerätepartitionen](#Gertepartitionen)
+	* 14.2. [Geräte ans Filesystem mounten](#GerteansFilesystemmounten)
+	* 14.3. [Geräte unmounten](#Gerteunmounten)
+	* 14.4. [Gemountete Geräte anzeigen](#GemounteteGerteanzeigen)
+	* 14.5. [Filesystem auf Fehler prüfen](#FilesystemaufFehlerprfen)
+* 15. [Logging System](#LoggingSystem)
+	* 15.1. [rsyslog](#rsyslog)
+	* 15.2. [logrotate](#logrotate)
+	* 15.3. [Unsichtbar bleiben](#Unsichtbarbleiben)
+* 16. [Services nutzen und missbrauchen](#Servicesnutzenundmissbrauchen)
+	* 16.1. [Services starten, stoppen und neustarten](#Servicesstartenstoppenundneustarten)
+	* 16.2. [MySQL](#MySQL)
+	* 16.3. [PostgreSQL](#PostgreSQL)
+* 17. [Anonym und sicher werden](#Anonymundsicherwerden)
+	* 17.1. [IP Pakete verfolgen](#IPPaketeverfolgen)
+	* 17.2. [Proxy verwenden](#Proxyverwenden)
+* 18. [Wireless Netzwerke untersuchen](#WirelessNetzwerkeuntersuchen)
+	* 18.1. [Grundlegende Befehle](#GrundlegendeBefehle)
+	* 18.2. [Aircrack-ng](#Aircrack-ng)
+	* 18.3. [BlueZ (Bluetooth)](#BlueZBluetooth)
+* 19. [Kernel verstehen und Module laden](#KernelverstehenundModuleladen)
+	* 19.1. [Grundlegende Kommandos](#GrundlegendeKommandos)
+	* 19.2. [Kernel konfigurieren](#Kernelkonfigurieren)
+	* 19.3. [Kernel Module verwalten](#KernelModuleverwalten)
+* 20. [Jop Scheduling](#JopScheduling)
+	* 20.1. [Jops automatisch starten](#Jopsautomatischstarten)
+	* 20.2. [Jops bei Betriebssystemstart ausführen](#JopsbeiBetriebssystemstartausfhren)
 
-## Basiskommandos
+##  1. <a name='Basiskommandos'></a>Basiskommandos
 Kommandos um sich in Linux zurechtzufinden
  
-### Aktueller Ordnerstandort
+###  1.1. <a name='AktuellerOrdnerstandort'></a>Aktueller Ordnerstandort
 Zeigt an in welchem Ordner man gerade ist
     
     kali >pwd
     /root 
 
-### Angemeldeter Benutzer
+###  1.2. <a name='AngemeldeterBenutzer'></a>Angemeldeter Benutzer
     kali >whoami
     root 
 
-## Dateinavigation
+##  2. <a name='Dateinavigation'></a>Dateinavigation
 Einige Kommandos um durch das Filesystem zu navigiern
 
-### Ordner wechseln
+###  2.1. <a name='Ordnerwechseln'></a>Ordner wechseln
 In ein Ordner navigiern
 
     kali >cd /etc 
@@ -30,7 +136,7 @@ Ein Ordner hoch navigieren
     kali >cd ..
     root@kali: /#
 
-### Ordnerinhalt auflisten
+###  2.2. <a name='Ordnerinhaltauflisten'></a>Ordnerinhalt auflisten
 Zeigt Dateinamen an
 
     kali >ls
@@ -50,16 +156,16 @@ Zeigt zusätzliche Dateiinfos an
     --snip--
     drw-r--r--    1    root     root    4096    Dec    5  11:15    var 
 
-## Hilfe erhalten
+##  3. <a name='Hilfeerhalten'></a>Hilfe erhalten
     kali >aircrack-ng --help
     kali >nmap -h
 
-### Referenz Manual
+###  3.1. <a name='ReferenzManual'></a>Referenz Manual
     kali >man nmap
 
-## Suche
+##  4. <a name='Suche'></a>Suche
 
-### locate - Befehl
+###  4.1. <a name='locate-Befehl'></a>locate - Befehl
     kali >locate aircrack-ng
     /usr/bin/aircrack-ng
     /usr/share/applications/kali-aircrack-ng.desktop
@@ -67,19 +173,19 @@ Zeigt zusätzliche Dateiinfos an
     --snip--
     /var/lib/dpkg/info/aircrack-ng.mg5sums
 
-### whereis - Befehl
+###  4.2. <a name='whereis-Befehl'></a>whereis - Befehl
 Sucht Binary Files
 
     kali >whereis aircrack-ng
     aircarck-ng: /usr/bin/aircarck-ng /usr/share/man/man1/aircarck-ng.1.gz
 
-### which - Befehl
+###  4.3. <a name='which-Befehl'></a>which - Befehl
 Gibt nur jenes Binary File zurück dass in der PATH Variable ist
 
     kali >which aircrack-ng
     /usr/bin/aircrack-ng
 
-### find - Befehl
+###  4.4. <a name='find-Befehl'></a>find - Befehl
 Ist einiges mächtiger und bietet viele Parameter
 
     kali >find  / -type f -name apache2 
@@ -92,7 +198,7 @@ Ist einiges mächtiger und bietet viele Parameter
     /etc/init.d/apache2 
     /etc/default/apache2 
 
-### grep - Befehl
+###  4.5. <a name='grep-Befehl'></a>grep - Befehl
 Filtert ein Textinput nach einem gewissen Suchbegriff
     kali >ps aux | grep apache2 
     root  4851 0.2 0.7 37548  7668 ?  Ss  10:14  0:00   /usr/sbin/apache2 -k start 
@@ -100,35 +206,35 @@ Filtert ein Textinput nach einem gewissen Suchbegriff
     root  4910 0.0 0.4 37572  4228 ?  Ss  10:14  0:00   /usr/sbin/apache2 -k start 
     --snip-- 
 
-## Files und Ordner modifizieren
+##  5. <a name='FilesundOrdnermodifizieren'></a>Files und Ordner modifizieren
 
-### File erstellen
+###  5.1. <a name='Fileerstellen'></a>File erstellen
 > kali >cat > hackingskills 
 Hacking is the most valuable skill set of the 21st century!
 
 > kali >touch newfile
 
-### File anschauen
+###  5.2. <a name='Fileanschauen'></a>File anschauen
 kali >cat hackingskills 
 Hacking is the most valuable skill set of the 21st century!
 
-### Text zu Textfile hinzufügen
+###  5.3. <a name='TextzuTextfilehinzufgen'></a>Text zu Textfile hinzufügen
     kali >cat >> hackingskills 
     Everyone should learn hacking
 
-### Ordner erstellen
+###  5.4. <a name='Ordnererstellen'></a>Ordner erstellen
     kali >mkdir newdirectory
 
-### File kopieren 
+###  5.5. <a name='Filekopieren'></a>File kopieren 
     kali >cp oldfile  /root/newdirectory/newfile
 
-### File umbenennen
+###  5.6. <a name='Fileumbenennen'></a>File umbenennen
     kali >mv newfile newfile2
 
-### File löschen
+###  5.7. <a name='Filelschen'></a>File löschen
     kali >rm newfile2
 
-### Ordner löschen
+###  5.8. <a name='Ordnerlschen'></a>Ordner löschen
 Bei diesem Befehl muss der Ordner leer sein
 
     kali >rmdir newdirectory 
@@ -137,9 +243,9 @@ Bei diesem Befehl muss der Ordner leer sein
 So werden auch gefüllte Ordner gelöscht
 > kali >rm -r newdirectory
 
-## Text Manipulation
+##  6. <a name='TextManipulation'></a>Text Manipulation
 
-### Kopfzeilen anschauen
+###  6.1. <a name='Kopfzeilenanschauen'></a>Kopfzeilen anschauen
 Zeigt die 10 ersten Zeilen an
 
     kali >head /etc/snort/snort.conf 
@@ -154,7 +260,7 @@ Anzahl Zeilen können auch selbst definiert werden
 
     kali >head -20 /etc/snort/snort.conf
 
-### Fusszeilen anzeigen
+###  6.2. <a name='Fusszeilenanzeigen'></a>Fusszeilen anzeigen
 Zeigt die letzten 10 Zeilen an
 
     kali >tail /etc/snort/snort.conf 
@@ -170,7 +276,7 @@ Kann auch hier wieder selbst definiert werden
 
     kali >tail -20 /etc/snort/snort.conf
 
-### Zeilen nummerieren
+###  6.3. <a name='Zeilennummerieren'></a>Zeilen nummerieren
     kali >nl /etc/snort/snort.conf 
     612 ################################################################# 
     613 #dynamic library rules 
@@ -180,15 +286,15 @@ Kann auch hier wieder selbst definiert werden
     630 #include $SO_RULE_PATH/web-iis.rules 
     631 #include $SO_RULE_PATH/web-misc.rules 
 
-### Text mit grep Filtern
+###  6.4. <a name='TextmitgrepFiltern'></a>Text mit grep Filtern
     kali >cat /etc/snort/snort.conf | grep output
 
-### Suchen und ersetzen
+###  6.5. <a name='Suchenundersetzen'></a>Suchen und ersetzen
 Sucht nach mysql und ersetzt es durch MySQL was wiederum in snort2.conf gespeichert wird¨
 
     kali >sed s/mysql/MySQL/g /etc/snort/snort.conf > snort2.conf
 
-### Files mit more und less anschauen
+###  6.6. <a name='Filesmitmoreundlessanschauen'></a>Files mit more und less anschauen
 More zeigt eine Seite gleichzeit eines Files an und lässt einen durchnavigieren
 
     kali >more /etc/snort/snort.conf 
@@ -210,12 +316,12 @@ Less ist ähnlich wie more lässt einen aber noch filtern (hier nach `output`)
     -response --enable-normalizer --enable-reload --enable-react 
        /output 
 
-## Netwerkanalyse
+##  7. <a name='Netwerkanalyse'></a>Netwerkanalyse
 
-### Netzwerkinformationen anzeigen
+###  7.1. <a name='Netzwerkinformationenanzeigen'></a>Netzwerkinformationen anzeigen
     kali >ifconfig
 
-### Wirelessgerät kontrollieren
+###  7.2. <a name='Wirelessgertkontrollieren'></a>Wirelessgerät kontrollieren
     kali >iwconfig 
     wlan0 IEEE 802.11bg ESSID:off/any 
     Mode:Managed Access Point: Not Associated Tx-Power=20 dBm 
@@ -223,21 +329,21 @@ Less ist ähnlich wie more lässt einen aber noch filtern (hier nach `output`)
     lo    no wireless extensions 
     eth0  no wireless extensions 
 
-### IP Adresse ändern
+###  7.3. <a name='IPAdressendern'></a>IP Adresse ändern
     kali >ifconfig eth0 192.168.181.115
 
-### Netzwerkmaske und Broadcastadresse ändern
+###  7.4. <a name='NetzwerkmaskeundBroadcastadressendern'></a>Netzwerkmaske und Broadcastadresse ändern
     kali >ifconfig eth0 192.168.181.115 netmask 255.255.0.0 broadcast 192.168.1.255
 
-### MAC Adresse ändern (spoofen)
+###  7.5. <a name='MACAdressendernspoofen'></a>MAC Adresse ändern (spoofen)
     kali >ifconfig eth0 down 
     kali >ifconfig eth0 hw ether 00:11:22:33:44:55 
     kali >ifconfig eth0 up 
 
-### Neue IP vom DHCP anfordern
+###  7.6. <a name='NeueIPvomDHCPanfordern'></a>Neue IP vom DHCP anfordern
     kali >dhclient eth0
 
-### DNS Informationen erhalten
+###  7.7. <a name='DNSInformationenerhalten'></a>DNS Informationen erhalten
     kali >dig hackers-arise.com ns 
     --snip-- 
     ;; QUESTION SECTION: 
@@ -249,20 +355,20 @@ Less ist ähnlich wie more lässt einen aber noch filtern (hier nach `output`)
     ns6.wixdns.net.     5  IN   A   216.239.32.100 
     --snip-- 
 
-### Eigener DNS Server ändern
+###  7.8. <a name='EigenerDNSServerndern'></a>Eigener DNS Server ändern
     kali >echo "nameserver 8.8.8.8"> /etc/resolv.conf
 
-## Software installieren und löschen
+##  8. <a name='Softwareinstallierenundlschen'></a>Software installieren und löschen
 
-### Ein Paket suchen
+###  8.1. <a name='EinPaketsuchen'></a>Ein Paket suchen
 
     apt-cache search keyword
 
-### Software hinzufügen
+###  8.2. <a name='Softwarehinzufgen'></a>Software hinzufügen
 
     apt-get install packagename
 
-### Software löschen
+###  8.3. <a name='Softwarelschen'></a>Software löschen
 
     kali >apt-get remove snort
 
@@ -270,17 +376,17 @@ Der obige Befehl löscht das Paket nicht komplett sondern behält dessen Konfigu
 
     kali >apt-get purge  snort
 
-### Softwareliste aktualisiern
+###  8.4. <a name='Softwarelisteaktualisiern'></a>Softwareliste aktualisiern
 Folgender Befehl updatet die Softwarerepositorys und prüft ob neue Software hinzugefügt wurde:
 
     kali >apt-get update
 
-### Software aktualisiern
+###  8.5. <a name='Softwareaktualisiern'></a>Software aktualisiern
 Folgender Befehl aktualisiert effektiv Software auf die neuste Version
 
     kali >apt-get upgrade   
 
-### Weiter Repositorys hinzufügen
+###  8.6. <a name='WeiterRepositoryshinzufgen'></a>Weiter Repositorys hinzufügen
 Die obigen Befehle suchen die angegeben Software aus Repositorys. Diese werden in folgender Date verlinkt und können dort ergänzt werden:
 
     kali >leafpad /etc/apt/sources.list
@@ -293,17 +399,17 @@ Es gibt dabei verschiedene Arten von Repositorys:
 **restricted** Contains proprietary device drivers <br>
 **backports** Contains packages from later releases <br>
 
-## Berechtigungen kontrollieren
+##  9. <a name='Berechtigungenkontrollieren'></a>Berechtigungen kontrollieren
 
-### Besitzerrechte an User vergeben
+###  9.1. <a name='BesitzerrechteanUservergeben'></a>Besitzerrechte an User vergeben
 
     kali >chown ubob v/tmp/bobsfile
 
-### Besitzerrechte an Gruppe vergeben
+###  9.2. <a name='BesitzerrechteanGruppevergeben'></a>Besitzerrechte an Gruppe vergeben
 
     kali >chgrp usecurity /etct/vnewIDS
 
-### Berechtigungen prüfen
+###  9.3. <a name='Berechtigungenprfen'></a>Berechtigungen prüfen
 
     kali >ls –l /usr/share/hashcat
     total 32952
@@ -320,7 +426,7 @@ Es gibt dabei verschiedene Arten von Repositorys:
 3. Das zweite **rwx** bestimmt die Rechte der **Gruppe**
 4. Das dritte **rwx** bestimmte die Rechte **aller anderen**
 
-### Berechtigungen ändern
+###  9.4. <a name='Berechtigungenndern'></a>Berechtigungen ändern
 
     kali >chmod 774 hashcat.hcstat
 
@@ -335,9 +441,9 @@ Es gibt dabei verschiedene Arten von Repositorys:
 | 110 | 6 | rw- |
 | 111 | 7 | rwx |
 
-## Prozess Management
+##  10. <a name='ProzessManagement'></a>Prozess Management
 
-### Prozesse anzeigen
+###  10.1. <a name='Prozesseanzeigen'></a>Prozesse anzeigen
 
     kali >ps
     PID    TTY      TIME      CMD
@@ -354,7 +460,7 @@ Folgender Befehl zeigt weitere Details zu den Prozessen an:
     --snip--
     root  39706  0.0  0.2  36096  3204 pts/0    R+ 15:05  0:00    ps aux
 
-### Nach Prozessnamen filtern
+###  10.2. <a name='NachProzessnamenfiltern'></a>Nach Prozessnamen filtern
 
     kali >ps aux | grep msfconsole
     root 39756  0.0  0.0  4304  716  pts/2 Ss+  15:13  0:00 sh -c service 
@@ -363,11 +469,11 @@ Folgender Befehl zeigt weitere Details zu den Prozessen an:
     msfconsole
     root 39892  0.0  0.0  4304  940  pts/2 S+  15:18  0:00 grep msfconsole
 
-### Nach Ressourcenverbrauch sortieren
+###  10.3. <a name='NachRessourcenverbrauchsortieren'></a>Nach Ressourcenverbrauch sortieren
 
     kali >top
 
-### Prozesspriorität verwalten
+###  10.4. <a name='Prozesspriorittverwalten'></a>Prozesspriorität verwalten
 Die Prioritäten gehen von **-20** bis **19**, wobei -20 am **höchtsten** und **19** am tiefsten priorisiert ist
 
 Mit folgendem Befehl wird ein Prozess mit entsprechender Priorität gestartet. Dies erhöht die Priorität der Prozesses um 10 (Setzt es **nicht** auf -10!!!)
@@ -378,7 +484,7 @@ Folgender Befehl ändert die Priorität eines laufenden Prozesses. Die Prioritä
 
     kali >renice 15 6996
 
-### Prozess töten
+###  10.5. <a name='Prozesstten'></a>Prozess töten
 Folgender Befehl beendet und startet den Prozess neu:
 
     kali >kill -1 6996
@@ -389,24 +495,24 @@ Folgender Befhel beendet den Prozess sofort:
 
     kali >killall -9 zombieprocess
 
-### Prozess im Hintergrund laufen lassen
+###  10.6. <a name='ProzessimHintergrundlaufenlassen'></a>Prozess im Hintergrund laufen lassen
 
     kali >leafpad newscript &
 
 Nun kann die Konsole weiterhin benutzt werden während leafpad geöffnet ist.
 
-### Prozess wieder in Vordergrund bringen
+###  10.7. <a name='ProzesswiederinVordergrundbringen'></a>Prozess wieder in Vordergrund bringen
 
     kali >fg 1234
 
-### Prozess schedulen
+###  10.8. <a name='Prozessschedulen'></a>Prozess schedulen
 
     kali >at 7:20am
     at >/root/myscanningscript
 
-## Userumgebungsvariablen verwalten
+##  11. <a name='Userumgebungsvariablenverwalten'></a>Userumgebungsvariablen verwalten
 
-### Variablen ansehen und modifizieren
+###  11.1. <a name='Variablenansehenundmodifizieren'></a>Variablen ansehen und modifizieren
 Alle **Standard** Variablen ansehen:
 
     kali >env
@@ -453,7 +559,7 @@ Variable permanent ändern:
     kali >HISTSIZE=1000
     kali >export HISTSIZE
 
-### Terminal Fenster ändern
+###  11.2. <a name='TerminalFensterndern'></a>Terminal Fenster ändern
 
     kali >PS1="World's Best Hacker
     World's Best Hacker: #
@@ -462,7 +568,7 @@ Variable permanent ändern:
     kali >export PS1='C:\w> '
     C:/tmp>
 
-### PATH Variable ändern
+###  11.3. <a name='PATHVariablendern'></a>PATH Variable ändern
 PATH Variable ansehen:
 
     kali >echo $PATH
@@ -472,7 +578,7 @@ Der PATH Variable etwas hinzufügen
 
     kali >PATH=$PATH:/root/newhackingtool
 
-### Eine Userdefinierte Variable erstellen
+###  11.4. <a name='EineUserdefinierteVariableerstellen'></a>Eine Userdefinierte Variable erstellen
 
     kali >MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
 
@@ -483,9 +589,9 @@ Diese Variable kann wie folgt wieder gelöscht werden:
 
     kali >unset MYNEWVARIABLE
 
-## Bash Scripting
+##  12. <a name='BashScripting'></a>Bash Scripting
 
-### Beispielskripte
+###  12.1. <a name='Beispielskripte'></a>Beispielskripte
 Skript mit User Input:
 
     #! /bin/bash
@@ -519,11 +625,11 @@ Verbessertes Scanner Skript:
     cat MySQLscan | grep open > MySQLscan2
     cat MySQLscan2
 
-### Skripte ausführen
+###  12.2. <a name='Skripteausfhren'></a>Skripte ausführen
 
     kali >./MySQLscannerAdvanced.sh 
 
-### Nützliche Kommandos für bash
+###  12.3. <a name='NtzlicheKommandosfrbash'></a>Nützliche Kommandos für bash
 
 | Command | Function |
 |---------|----------|
@@ -555,25 +661,25 @@ Verbessertes Scanner Skript:
 | unset | Deletes values from a variable or function
 | wait | Waits for a background process to complete
 
-## Kompression
+##  13. <a name='Kompression'></a>Kompression
 
-### Files zu einem Archiv zusammenfügen 
+###  13.1. <a name='FileszueinemArchivzusammenfgen'></a>Files zu einem Archiv zusammenfügen 
     kali >tar -cvf HackersArise.tar hackersarise1 hackersarise2 hackersarise3
 
 Die 3 Files wurden nun zu einem Archiv zusammengefügt. <br>
 
-### Filearchiv ansehen
+###  13.2. <a name='Filearchivansehen'></a>Filearchiv ansehen
 Über folgenden Befehl kann das Archiv nun angesehn werden
 
     kali >tar -tvf HackersArise.tar
 
-### Filearchiv extrahieren
+###  13.3. <a name='Filearchivextrahieren'></a>Filearchiv extrahieren
     kali >tar -xvf HackersArise.tar 
 ---
     kali >tar -xf HackersArise.tar 
 (Zeigt die extrahieren Files nicht an)
 
-### Kompression mit gzip
+###  13.4. <a name='Kompressionmitgzip'></a>Kompression mit gzip
 Mit gzip wird ein Archiv komprimiert und braucht so weniger Speicherplatz
 
     kali >gzip HackersArise.*
@@ -582,7 +688,7 @@ Um es wieder zu entpacken gibt es folgenden Befehl:
 
     gunzip HackersArise.*
 
-### Kompression mit bzip2
+###  13.5. <a name='Kompressionmitbzip2'></a>Kompression mit bzip2
 bzip2 funktioniert gleich wie gzip hat allerdings eine bessere Kompressionsrate, ist dafür aber langsamer.
 
     kali >bzip2 HackersArise.*
@@ -591,7 +697,7 @@ Um es wieder zu entpacken kann folgender Befehl verwendet werden:
 
     kali >bunzip2 HackersArise.*
 
-### Kompression mit compress
+###  13.6. <a name='Kompressionmitcompress'></a>Kompression mit compress
 Hat die tiefste Kompressionsrate ist dafür aber auch am schnellsten
 
     kali >compress HackersArise.*
@@ -600,7 +706,7 @@ Um es zu entpacken kann folgender Befehl verwendet werden (gunzip Befehl würde 
 
     kali >uncompress HackersArise.*
 
-### Bit-by-Bit Kopie einer Harddisk
+###  13.7. <a name='Bit-by-BitKopieeinerHarddisk'></a>Bit-by-Bit Kopie einer Harddisk
 Folgender Befehl ermöglicht es die gesamte Festplatte zu kopieren mitsamt den gelöschten Files (Achtung! Sehr langsam):
 
     dd if=inputfile of=outputfile
@@ -616,9 +722,9 @@ Beispiel:
 
 (Kopiert auch bei Errors weiter mit einer Blocksize von 4096 Bytes was schneller geht)
 
-## Filesystem und Speichermanagement
+##  14. <a name='FilesystemundSpeichermanagement'></a>Filesystem und Speichermanagement
 
-### Gerätepartitionen
+###  14.1. <a name='Gertepartitionen'></a>Gerätepartitionen
 Um eine Speichergerät mit dessen partitionen und Kapazitäten anzeigen zu lassen kann folgender Befehl genutzt werden:
 
     kali >kali >fdisk -l
@@ -627,17 +733,17 @@ Folgender Befehl hat die gleiche Funktion wie der obige zeigt aber die Partition
 
     kali >lsblk
 
-### Geräte ans Filesystem mounten
+###  14.2. <a name='GerteansFilesystemmounten'></a>Geräte ans Filesystem mounten
 Folgender Befehl mountet ein Gerät an ein Ordner (dieser sollte leer sein!):
 
     kali >mount /dev/sdb1 /mnt
 
-### Geräte unmounten
+###  14.3. <a name='Gerteunmounten'></a>Geräte unmounten
 Nachfolgender Befehl unmountet ein Gerät wieder;
 
     kali >umount /dev/sdb1
 
-### Gemountete Geräte anzeigen
+###  14.4. <a name='GemounteteGerteanzeigen'></a>Gemountete Geräte anzeigen
     kali >df 
     Filesystem          1K-Blocks      Used  Available Use%     Mounted on 
     rootfs               19620732  17096196    1504788  92%     / 
@@ -645,7 +751,7 @@ Nachfolgender Befehl unmountet ein Gerät wieder;
     --snip--<br>
     /dev/sdb1            29823024  29712544     110480  99%     /media/USB3.0 
 
-### Filesystem auf Fehler prüfen
+###  14.5. <a name='FilesystemaufFehlerprfen'></a>Filesystem auf Fehler prüfen
     kali >fsck 
 
 Dieser Befehl prüft das Filesystem auf Fehler. Dazu muss aber zuerst das Gerätun unmountet werden.
@@ -658,9 +764,9 @@ Nun kann fsck ausgeführt werden:
 
 Das `-p` Flag repariert automatisch auftauchende Probleme.
 
-## Logging System
+##  15. <a name='LoggingSystem'></a>Logging System
 
-### rsyslog
+###  15.1. <a name='rsyslog'></a>rsyslog
 Das Rsyslog File beinhaltet einige Logging Informationen und kann wie folgt geöffnet werden:
 
     kali >leafpad /etc/rsyslog.conf
@@ -671,13 +777,13 @@ Ab Zeile 50 können logging Regeln definiert werden
     kern.crit /var/log/kernel (=> loggt alle kritischen Kernel Nachrichten in /var/log/kern) 
     *.emerg * (=> loggt alle Emergency Nachrichten des Systems)
 
-### logrotate
+###  15.2. <a name='logrotate'></a>logrotate
 Innerhalb des logrotate.conf Files kann spezifiziert werden zu welchem Zeitpunkt logs archiviert werden sollen.
 Logrotate kann wie folg geöffnet werden:
 
     kali >leafpad /etc/logrotate.conf
 
-### Unsichtbar bleiben
+###  15.3. <a name='Unsichtbarbleiben'></a>Unsichtbar bleiben
 Mit dem `shred` Befehl werden logfiles gelöscht und mehrere male überschrieben um sich nicht wiederherstellen zu können
 
     shred -f -n 10 /var/log/auth.log.*
@@ -687,16 +793,16 @@ Ebenfalls kann das Logging auch einfach **augeschaltet** werden. Dies geht über
 
     kali >service rsyslog stop
 
-## Services nutzen und missbrauchen
+##  16. <a name='Servicesnutzenundmissbrauchen'></a>Services nutzen und missbrauchen
 
-### Services starten, stoppen und neustarten
+###  16.1. <a name='Servicesstartenstoppenundneustarten'></a>Services starten, stoppen und neustarten
     kali >service apache2 start
 ---
     kali >service apache2 stop
 ---
     kali >service apache2 restart 
 
-### MySQL
+###  16.2. <a name='MySQL'></a>MySQL
 MySQL Services starten
 
     kali >service mysql start
@@ -735,7 +841,7 @@ Bestimmter Inhalt aus Tabelle anzeigen lassen
 
 (mysql >SELECT * FROM cardnumbers;)
 
-### PostgreSQL
+###  16.3. <a name='PostgreSQL'></a>PostgreSQL
 Postgres starten
 
     kali >service postgresql start
@@ -766,9 +872,9 @@ Status der Datenbank prüfen
     
     msf >db_status
 
-## Anonym und sicher werden
+##  17. <a name='Anonymundsicherwerden'></a>Anonym und sicher werden
 
-### IP Pakete verfolgen
+###  17.1. <a name='IPPaketeverfolgen'></a>IP Pakete verfolgen
 Die einzelnen Hops einsehen die ein Paket passiert:
 
     kali >traceroute google.com 
@@ -779,7 +885,7 @@ Die einzelnen Hops einsehen die ein Paket passiert:
     --snip-- 
     18 lgal15s44-in-f14.le100.net (172.217.1.78)  94.666 ms 42.990 ms 41.564 ms 
 
-### Proxy verwenden
+###  17.2. <a name='Proxyverwenden'></a>Proxy verwenden
 Komando über eine Kette von Proxys verwenden
 
     kali >proxychains firefox www.hackers-arise.com 
@@ -815,9 +921,9 @@ Random Chaining (Es werden mehrere Proxys in zufälliger Reihenfolge verwendet) 
     # Makes sense only if random_chain 
     chain_len = 3 (<= Anzahl Proxys anpassen!!!)
 
-## Wireless Netzwerke untersuchen
+##  18. <a name='WirelessNetzwerkeuntersuchen'></a>Wireless Netzwerke untersuchen
 
-### Grundlegende Befehle
+###  18.1. <a name='GrundlegendeBefehle'></a>Grundlegende Befehle
 Wireless Interfaces und dessen Einstellungen anzeigen lassen.
 
     kali >iwconfig
@@ -834,7 +940,7 @@ Mit einem WLAN verbinden
 
     kali >nmcli dev wifi connect Hackers-Arise password 12345678
 
-### Aircrack-ng
+###  18.2. <a name='Aircrack-ng'></a>Aircrack-ng
 WiFi Karte in Monitor Modus schalten (Um Traffic mitlesen zu können)
 
     airmon-ng start|stop|restart interface <br>
@@ -856,7 +962,7 @@ Die ausgelesenen Hashes können nun mit einer Wörterliste versucht werden zu kn
 
     aircrack-ng -w wordlist.dic -b 01:01:AA:BB:CC:22 Hacker-ArisePSK.cap
 
-### BlueZ (Bluetooth)
+###  18.3. <a name='BlueZBluetooth'></a>BlueZ (Bluetooth)
 Ist eine Implementierung des Bluetooth Protokoll Stack und wird zum scannen von Bluetooth Geräten verwendet.
 
 Bluetooth Adapter Informationen und Einstellungen anzeigen
@@ -883,9 +989,9 @@ Ein Bluetooth Gerät anpingen
     
     kali >l2ping 76:6E:46:63:72:66 -c 4
 
-## Kernel verstehen und Module laden
+##  19. <a name='KernelverstehenundModuleladen'></a>Kernel verstehen und Module laden
 
-### Grundlegende Kommandos
+###  19.1. <a name='GrundlegendeKommandos'></a>Grundlegende Kommandos
 Die Kernel Version einsehen
 
     kali >uname -a
@@ -894,7 +1000,7 @@ Kernel log ansehen
 
     kali >dmesg
 
-### Kernel konfigurieren
+###  19.2. <a name='Kernelkonfigurieren'></a>Kernel konfigurieren
 In der Datei *sysctl* lassen sich diverse Kernel Einstellungen anpassen
 
     kali >sysctl -a | less
@@ -904,7 +1010,7 @@ In der Datei *sysctl* lassen sich diverse Kernel Einstellungen anpassen
     dev.cdrom.debug = 0
     --snip--
 
-### Kernel Module verwalten
+###  19.3. <a name='KernelModuleverwalten'></a>Kernel Module verwalten
 Alle aktuelle Module im Kernel auflisten:
 
     kali >lsmod
@@ -940,9 +1046,9 @@ Ein Modul aus dem Kernel entfernen:
 
     kali >modprobe -r <module to be removed>
 
-## Jop Scheduling
+##  20. <a name='JopScheduling'></a>Jop Scheduling
 
-### Jops automatisch starten
+###  20.1. <a name='Jopsautomatischstarten'></a>Jops automatisch starten
 Jops müssen innerhalbt eines Files angegeben werden. Diese File kann wie folg geöffnet werden:
 
     kali >crontab -e
@@ -974,7 +1080,7 @@ Die Jops müssen anschliessen wie folg in diesem File eingetragen werden:
 * Mon = Month (bestimmter Monat 0-11)
 * Ein * bedeutet **any**
 
-### Jops bei Betriebssystemstart ausführen
+###  20.2. <a name='JopsbeiBetriebssystemstartausfhren'></a>Jops bei Betriebssystemstart ausführen
 Services können mithilfe des rc.d Skript bei Betriebssystemstart mitgestartet werden. Dafür ist das update-rc.d Kommando gedacht:
 
     kali >update-rc.d <name of the script or service> <remove|defaults|disable|enable>
