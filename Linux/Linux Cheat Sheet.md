@@ -5,109 +5,109 @@ Ein Cheat Sheet für diverse Linux Befehle
 
 1. [Basiskommandos](#Basiskommandos) <br>
 	1.1. [Aktueller Ordnerstandort](#AktuellerOrdnerstandort) <br>
-	1.2. [Angemeldeter Benutzer](#AngemeldeterBenutzer)
-2. [Dateinavigation](#Dateinavigation)
-	* 2.1. [Ordner wechseln](#Ordnerwechseln)
-	* 2.2. [Ordnerinhalt auflisten](#Ordnerinhaltauflisten)
-3. [Hilfe erhalten](#Hilfeerhalten)
-	* 3.1. [Referenz Manual](#ReferenzManual)
-4. [Suche](#Suche)
-	* 4.1. [locate - Befehl](#locate-Befehl)
-	* 4.2. [whereis - Befehl](#whereis-Befehl)
-	* 4.3. [which - Befehl](#which-Befehl)
-	* 4.4. [find - Befehl](#find-Befehl)
-	* 4.5. [grep - Befehl](#grep-Befehl)
-5. [Files und Ordner modifizieren](#FilesundOrdnermodifizieren)
-	* 5.1. [File erstellen](#Fileerstellen)
-	* 5.2. [File anschauen](#Fileanschauen)
-	* 5.3. [Text zu Textfile hinzufügen](#TextzuTextfilehinzufgen)
-	* 5.4. [Ordner erstellen](#Ordnererstellen)
-	* 5.5. [File kopieren](#Filekopieren)
-	* 5.6. [File umbenennen](#Fileumbenennen)
-	* 5.7. [File löschen](#Filelschen)
-	* 5.8. [Ordner löschen](#Ordnerlschen)
-6. [Text Manipulation](#TextManipulation)
-	* 6.1. [Kopfzeilen anschauen](#Kopfzeilenanschauen)
-	* 6.2. [Fusszeilen anzeigen](#Fusszeilenanzeigen)
-	* 6.3. [Zeilen nummerieren](#Zeilennummerieren)
-	* 6.4. [Text mit grep Filtern](#TextmitgrepFiltern)
-	* 6.5. [Suchen und ersetzen](#Suchenundersetzen)
-	* 6.6. [Files mit more und less anschauen](#Filesmitmoreundlessanschauen)
-7. [Netwerkanalyse](#Netwerkanalyse)
-	* 7.1. [Netzwerkinformationen anzeigen](#Netzwerkinformationenanzeigen)
-	* 7.2. [Wirelessgerät kontrollieren](#Wirelessgertkontrollieren)
-	* 7.3. [IP Adresse ändern](#IPAdressendern)
-	* 7.4. [Netzwerkmaske und Broadcastadresse ändern](#NetzwerkmaskeundBroadcastadressendern)
-	* 7.5. [MAC Adresse ändern (spoofen)](#MACAdressendernspoofen)
-	* 7.6. [Neue IP vom DHCP anfordern](#NeueIPvomDHCPanfordern)
-	* 7.7. [DNS Informationen erhalten](#DNSInformationenerhalten)
-	* 7.8. [Eigener DNS Server ändern](#EigenerDNSServerndern)
-8. [Software installieren und löschen](#Softwareinstallierenundlschen)
-	* 8.1. [Ein Paket suchen](#EinPaketsuchen)
-	* 8.2. [Software hinzufügen](#Softwarehinzufgen)
-	* 8.3. [Software löschen](#Softwarelschen)
-	* 8.4. [Softwareliste aktualisiern](#Softwarelisteaktualisiern)
-	* 8.5. [Software aktualisiern](#Softwareaktualisiern)
-	* 8.6. [Weiter Repositorys hinzufügen](#WeiterRepositoryshinzufgen)
-9. [Berechtigungen kontrollieren](#Berechtigungenkontrollieren)
-	* 9.1. [Besitzerrechte an User vergeben](#BesitzerrechteanUservergeben)
-	* 9.2. [Besitzerrechte an Gruppe vergeben](#BesitzerrechteanGruppevergeben)
-	* 9.3. [Berechtigungen prüfen](#Berechtigungenprfen)
-	* 9.4. [Berechtigungen ändern](#Berechtigungenndern)
-10. [Prozess Management](#ProzessManagement)
-	* 10.1. [Prozesse anzeigen](#Prozesseanzeigen)
-	* 10.2. [Nach Prozessnamen filtern](#NachProzessnamenfiltern)
-	* 10.3. [Nach Ressourcenverbrauch sortieren](#NachRessourcenverbrauchsortieren)
-	* 10.4. [Prozesspriorität verwalten](#Prozesspriorittverwalten)
-	* 10.5. [Prozess töten](#Prozesstten)
-	* 10.6. [Prozess im Hintergrund laufen lassen](#ProzessimHintergrundlaufenlassen)
-	* 10.7. [Prozess wieder in Vordergrund bringen](#ProzesswiederinVordergrundbringen)
-	* 10.8. [Prozess schedulen](#Prozessschedulen)
-11. [Userumgebungsvariablen verwalten](#Userumgebungsvariablenverwalten)
-	* 11.1. [Variablen ansehen und modifizieren](#Variablenansehenundmodifizieren)
-	* 11.2. [Terminal Fenster ändern](#TerminalFensterndern)
-	* 11.3. [PATH Variable ändern](#PATHVariablendern)
-	* 11.4. [Eine Userdefinierte Variable erstellen](#EineUserdefinierteVariableerstellen)
-12. [Bash Scripting](#BashScripting)
-	* 12.1. [Beispielskripte](#Beispielskripte)
-	* 12.2. [Skripte ausführen](#Skripteausfhren)
-	* 12.3. [Nützliche Kommandos für bash](#NtzlicheKommandosfrbash)
-13. [Kompression](#Kompression)
-	* 13.1. [Files zu einem Archiv zusammenfügen](#FileszueinemArchivzusammenfgen)
-	* 13.2. [Filearchiv ansehen](#Filearchivansehen)
-	* 13.3. [Filearchiv extrahieren](#Filearchivextrahieren)
-	* 13.4. [Kompression mit gzip](#Kompressionmitgzip)
-	* 13.5. [Kompression mit bzip2](#Kompressionmitbzip2)
-	* 13.6. [Kompression mit compress](#Kompressionmitcompress)
-	* 13.7. [Bit-by-Bit Kopie einer Harddisk](#Bit-by-BitKopieeinerHarddisk)
-14. [Filesystem und Speichermanagement](#FilesystemundSpeichermanagement)
-	* 14.1. [Gerätepartitionen](#Gertepartitionen)
-	* 14.2. [Geräte ans Filesystem mounten](#GerteansFilesystemmounten)
-	* 14.3. [Geräte unmounten](#Gerteunmounten)
-	* 14.4. [Gemountete Geräte anzeigen](#GemounteteGerteanzeigen)
-	* 14.5. [Filesystem auf Fehler prüfen](#FilesystemaufFehlerprfen)
-15. [Logging System](#LoggingSystem)
-	* 15.1. [rsyslog](#rsyslog)
-	* 15.2. [logrotate](#logrotate)
-	* 15.3. [Unsichtbar bleiben](#Unsichtbarbleiben)
-16. [Services nutzen und missbrauchen](#Servicesnutzenundmissbrauchen)
-	* 16.1. [Services starten, stoppen und neustarten](#Servicesstartenstoppenundneustarten)
-	* 16.2. [MySQL](#MySQL)
-	* 16.3. [PostgreSQL](#PostgreSQL)
-17. [Anonym und sicher werden](#Anonymundsicherwerden)
-	* 17.1. [IP Pakete verfolgen](#IPPaketeverfolgen)
-	* 17.2. [Proxy verwenden](#Proxyverwenden)
-18. [Wireless Netzwerke untersuchen](#WirelessNetzwerkeuntersuchen)
-	* 18.1. [Grundlegende Befehle](#GrundlegendeBefehle)
-	* 18.2. [Aircrack-ng](#Aircrack-ng)
-	* 18.3. [BlueZ (Bluetooth)](#BlueZBluetooth)
-19. [Kernel verstehen und Module laden](#KernelverstehenundModuleladen)
-	* 19.1. [Grundlegende Kommandos](#GrundlegendeKommandos)
-	* 19.2. [Kernel konfigurieren](#Kernelkonfigurieren)
-	* 19.3. [Kernel Module verwalten](#KernelModuleverwalten)
-20. [Jop Scheduling](#JopScheduling)
-	* 20.1. [Jops automatisch starten](#Jopsautomatischstarten)
-	* 20.2. [Jops bei Betriebssystemstart ausführen](#JopsbeiBetriebssystemstartausfhren)
+	1.2. [Angemeldeter Benutzer](#AngemeldeterBenutzer) <br>
+2. [Dateinavigation](#Dateinavigation) <br>
+	2.1. [Ordner wechseln](#Ordnerwechseln) <br>
+	2.2. [Ordnerinhalt auflisten](#Ordnerinhaltauflisten) <br>
+3. [Hilfe erhalten](#Hilfeerhalten) <br>
+	3.1. [Referenz Manual](#ReferenzManual) <br>
+4. [Suche](#Suche) <br>
+	4.1. [locate - Befehl](#locate-Befehl) <br>
+	4.2. [whereis - Befehl](#whereis-Befehl) <br>
+	4.3. [which - Befehl](#which-Befehl) <br>
+	4.4. [find - Befehl](#find-Befehl) <br>
+	4.5. [grep - Befehl](#grep-Befehl) <br>
+5. [Files und Ordner modifizieren](#FilesundOrdnermodifizieren) <br>
+	5.1. [File erstellen](#Fileerstellen) <br>
+	5.2. [File anschauen](#Fileanschauen) <br>
+	5.3. [Text zu Textfile hinzufügen](#TextzuTextfilehinzufgen) <br>
+	5.4. [Ordner erstellen](#Ordnererstellen) <br>
+	5.5. [File kopieren](#Filekopieren) <br>
+	5.6. [File umbenennen](#Fileumbenennen) <br>
+	5.7. [File löschen](#Filelschen) <br>
+	5.8. [Ordner löschen](#Ordnerlschen) <br>
+6. [Text Manipulation](#TextManipulation) <br>
+	6.1. [Kopfzeilen anschauen](#Kopfzeilenanschauen) <br>
+	6.2. [Fusszeilen anzeigen](#Fusszeilenanzeigen) <br>
+	6.3. [Zeilen nummerieren](#Zeilennummerieren) <br>
+	6.4. [Text mit grep Filtern](#TextmitgrepFiltern) <br>
+	6.5. [Suchen und ersetzen](#Suchenundersetzen) <br>
+	6.6. [Files mit more und less anschauen](#Filesmitmoreundlessanschauen) <br>
+7. [Netwerkanalyse](#Netwerkanalyse) <br>
+	7.1. [Netzwerkinformationen anzeigen](#Netzwerkinformationenanzeigen) <br>
+	7.2. [Wirelessgerät kontrollieren](#Wirelessgertkontrollieren) <br>
+	7.3. [IP Adresse ändern](#IPAdressendern) <br>
+	7.4. [Netzwerkmaske und Broadcastadresse ändern](#NetzwerkmaskeundBroadcastadressendern) <br>
+	7.5. [MAC Adresse ändern (spoofen)](#MACAdressendernspoofen) <br>
+	7.6. [Neue IP vom DHCP anfordern](#NeueIPvomDHCPanfordern) <br>
+	7.7. [DNS Informationen erhalten](#DNSInformationenerhalten) <br>
+	7.8. [Eigener DNS Server ändern](#EigenerDNSServerndern) <br>
+8. [Software installieren und löschen](#Softwareinstallierenundlschen) <br>
+	8.1. [Ein Paket suchen](#EinPaketsuchen) <br>
+	8.2. [Software hinzufügen](#Softwarehinzufgen) <br>
+	8.3. [Software löschen](#Softwarelschen) <br>
+	8.4. [Softwareliste aktualisiern](#Softwarelisteaktualisiern) <br>
+	8.5. [Software aktualisiern](#Softwareaktualisiern) <br>
+	8.6. [Weiter Repositorys hinzufügen](#WeiterRepositoryshinzufgen) <br>
+9. [Berechtigungen kontrollieren](#Berechtigungenkontrollieren) <br>
+	9.1. [Besitzerrechte an User vergeben](#BesitzerrechteanUservergeben) <br>
+	9.2. [Besitzerrechte an Gruppe vergeben](#BesitzerrechteanGruppevergeben) <br>
+	9.3. [Berechtigungen prüfen](#Berechtigungenprfen) <br>
+	9.4. [Berechtigungen ändern](#Berechtigungenndern) <br>
+10. [Prozess Management](#ProzessManagement) <br>
+	10.1. [Prozesse anzeigen](#Prozesseanzeigen) <br>
+	10.2. [Nach Prozessnamen filtern](#NachProzessnamenfiltern) <br>
+	10.3. [Nach Ressourcenverbrauch sortieren](#NachRessourcenverbrauchsortieren) <br>
+	10.4. [Prozesspriorität verwalten](#Prozesspriorittverwalten) <br>
+	10.5. [Prozess töten](#Prozesstten) <br>
+	10.6. [Prozess im Hintergrund laufen lassen](#ProzessimHintergrundlaufenlassen) <br>
+	10.7. [Prozess wieder in Vordergrund bringen](#ProzesswiederinVordergrundbringen) <br>
+	10.8. [Prozess schedulen](#Prozessschedulen) <br>
+11. [Userumgebungsvariablen verwalten](#Userumgebungsvariablenverwalten) <br>
+	11.1. [Variablen ansehen und modifizieren](#Variablenansehenundmodifizieren) <br>
+	11.2. [Terminal Fenster ändern](#TerminalFensterndern) <br>
+	11.3. [PATH Variable ändern](#PATHVariablendern) <br>
+	11.4. [Eine Userdefinierte Variable erstellen](#EineUserdefinierteVariableerstellen) <br>
+12. [Bash Scripting](#BashScripting) <br>
+	12.1. [Beispielskripte](#Beispielskripte) <br>
+	12.2. [Skripte ausführen](#Skripteausfhren) <br>
+	12.3. [Nützliche Kommandos für bash](#NtzlicheKommandosfrbash) <br>
+13. [Kompression](#Kompression) <br>
+	13.1. [Files zu einem Archiv zusammenfügen](#FileszueinemArchivzusammenfgen) <br>
+	13.2. [Filearchiv ansehen](#Filearchivansehen) <br>
+	13.3. [Filearchiv extrahieren](#Filearchivextrahieren) <br>
+	13.4. [Kompression mit gzip](#Kompressionmitgzip) <br>
+	13.5. [Kompression mit bzip2](#Kompressionmitbzip2) <br>
+	13.6. [Kompression mit compress](#Kompressionmitcompress) <br>
+	13.7. [Bit-by-Bit Kopie einer Harddisk](#Bit-by-BitKopieeinerHarddisk) <br>
+14. [Filesystem und Speichermanagement](#FilesystemundSpeichermanagement) <br>
+	14.1. [Gerätepartitionen](#Gertepartitionen) <br>
+	14.2. [Geräte ans Filesystem mounten](#GerteansFilesystemmounten) <br>
+	14.3. [Geräte unmounten](#Gerteunmounten) <br>
+	14.4. [Gemountete Geräte anzeigen](#GemounteteGerteanzeigen) <br>
+	14.5. [Filesystem auf Fehler prüfen](#FilesystemaufFehlerprfen) <br>
+15. [Logging System](#LoggingSystem) <br>
+	15.1. [rsyslog](#rsyslog) <br>
+	15.2. [logrotate](#logrotate) <br>
+	15.3. [Unsichtbar bleiben](#Unsichtbarbleiben) <br>
+16. [Services nutzen und missbrauchen](#Servicesnutzenundmissbrauchen) <br>
+	16.1. [Services starten, stoppen und neustarten](#Servicesstartenstoppenundneustarten) <br>
+	16.2. [MySQL](#MySQL) <br>
+	16.3. [PostgreSQL](#PostgreSQL) <br>
+17. [Anonym und sicher werden](#Anonymundsicherwerden) <br>
+	17.1. [IP Pakete verfolgen](#IPPaketeverfolgen) <br>
+	17.2. [Proxy verwenden](#Proxyverwenden) <br>
+18. [Wireless Netzwerke untersuchen](#WirelessNetzwerkeuntersuchen) <br>
+	18.1. [Grundlegende Befehle](#GrundlegendeBefehle) <br>
+	18.2. [Aircrack-ng](#Aircrack-ng) <br>
+	18.3. [BlueZ (Bluetooth)](#BlueZBluetooth) <br>
+19. [Kernel verstehen und Module laden](#KernelverstehenundModuleladen) <br>
+	19.1. [Grundlegende Kommandos](#GrundlegendeKommandos) <br>
+	19.2. [Kernel konfigurieren](#Kernelkonfigurieren) <br>
+	19.3. [Kernel Module verwalten](#KernelModuleverwalten) <br>
+20. [Jop Scheduling](#JopScheduling) <br>
+	20.1. [Jops automatisch starten](#Jopsautomatischstarten) <br>
+	20.2. [Jops bei Betriebssystemstart ausführen](#JopsbeiBetriebssystemstartausfhren) <br>
 
 ##  1. <a name='Basiskommandos'></a>Basiskommandos
 Kommandos um sich in Linux zurechtzufinden
@@ -393,7 +393,7 @@ Die obigen Befehle suchen die angegeben Software aus Repositorys. Diese werden i
 
 Es gibt dabei verschiedene Arten von Repositorys:
 
-**main** Contains supported open source software <br>
+**main*Contains supported open source software <br>
 **universe** Contains community-maintained open source <br>
 **multiverse** Contains software restricted by copyright issues <br>
 **restricted** Contains proprietary device drivers <br>
