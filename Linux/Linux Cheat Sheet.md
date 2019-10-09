@@ -1,6 +1,8 @@
 # Linux Cheat Sheet
 Ein Cheat Sheet für diverse Linux Befehle
 
+
+
 ## Basiskommandos
 Kommandos um sich in Linux zurechtzufinden
  
@@ -249,6 +251,309 @@ Less ist ähnlich wie more lässt einen aber noch filtern (hier nach `output`)
 
 ### Eigener DNS Server ändern
     kali >echo "nameserver 8.8.8.8"> /etc/resolv.conf
+
+## Software installieren und löschen
+
+### Ein Paket suchen
+
+    apt-cache search keyword
+
+### Software hinzufügen
+
+    apt-get install packagename
+
+### Software löschen
+
+    kali >apt-get remove snort
+
+Der obige Befehl löscht das Paket nicht komplett sondern behält dessen Konfigurationsfiles. Um ein Paket komplett zu löschen kann folgender Befehl verwendet werden:
+
+    kali >apt-get purge  snort
+
+### Softwareliste aktualisiern
+Folgender Befehl updatet die Softwarerepositorys und prüft ob neue Software hinzugefügt wurde:
+
+    kali >apt-get update
+
+### Software aktualisiern
+Folgender Befehl aktualisiert effektiv Software auf die neuste Version
+
+    kali >apt-get upgrade   
+
+### Weiter Repositorys hinzufügen
+Die obigen Befehle suchen die angegeben Software aus Repositorys. Diese werden in folgender Date verlinkt und können dort ergänzt werden:
+
+    kali >leafpad /etc/apt/sources.list
+
+Es gibt dabei verschiedene Arten von Repositorys:
+
+**main** Contains supported open source software <br>
+**universe** Contains community-maintained open source <br>
+**multiverse** Contains software restricted by copyright issues <br>
+**restricted** Contains proprietary device drivers <br>
+**backports** Contains packages from later releases <br>
+
+## Berechtigungen kontrollieren
+
+### Besitzerrechte an User vergeben
+
+    kali >chown ubob v/tmp/bobsfile
+
+### Besitzerrechte an Gruppe vergeben
+
+    kali >chgrp usecurity /etct/vnewIDS
+
+### Berechtigungen prüfen
+
+    kali >ls –l /usr/share/hashcat
+    total 32952
+    u v       w  x            y         z           {
+    drwxr-xr-x  5  root  root    4096     Dec 5 10:47  charsets
+    -rw-r--r--  1  root  root    33685504 June 28 2018 hashcat
+    -rw-r--r--  1  root  root    33685504 June 28 2018 hashcat
+    drwxr -xr-x 2  root  root    4096     Dec 5 10:47  masks
+    drwxr -xr-x 2  root  root    4096     Dec 5 10:47  OpenCL
+    drwxr -xr-x 3  root  root    4096     Dec 5 10:47  rules
+
+1. Das **d** am Anfang sagt aus ob es ein Ordner oder ein File ist
+2. Das erste **rwx** bestimmt die Rechte des **Besitzers**
+3. Das zweite **rwx** bestimmt die Rechte der **Gruppe**
+4. Das dritte **rwx** bestimmte die Rechte **aller anderen**
+
+### Berechtigungen ändern
+
+    kali >chmod 774 hashcat.hcstat
+
+| Binary | Octal | rwx |
+|-------|-------|------| 
+| 000 | 0 | --- |
+| 001 | 1 | --x |
+| 010 | 2 | -w- |
+| 011 | 3 | -wx |
+| 100 | 4 | r-- |
+| 101 | 5 | r-x |
+| 110 | 6 | rw- |
+| 111 | 7 | rwx |
+
+## Prozess Management
+
+### Prozesse anzeigen
+
+    kali >ps
+    PID    TTY      TIME      CMD
+    39659  pts/0    00:00:01  bash
+    39665  pts/0    00:00:00  ps
+
+Folgender Befehl zeigt weitere Details zu den Prozessen an:
+
+    kali >ps aux
+    USER  PID   %CPU  %MEM    VSZ    RSS TTY    STAT START   TIME   COMMAND
+    Root    1    0.0   0.4    202540  6396 ?    Ss   Apr24    0:46  /sbin/init
+    Root    2    0.0   0.0         0     0 ?    S    Apr24    0:00  [kthreadd
+    Root    3    0.0   0.0         0     0 ?    S    Apr24    0:26  [ksoftirqd
+    --snip--
+    root  39706  0.0  0.2  36096  3204 pts/0    R+ 15:05  0:00    ps aux
+
+### Nach Prozessnamen filtern
+
+    kali >ps aux | grep msfconsole
+    root 39756  0.0  0.0  4304  716  pts/2 Ss+  15:13  0:00 sh -c service 
+    postgresql start && msfdb init & msfconsole
+    root 39759  35.1  15.2  4304  227888  pts/2 Sl+  15:13  1:36 ruby /usr/bin/
+    msfconsole
+    root 39892  0.0  0.0  4304  940  pts/2 S+  15:18  0:00 grep msfconsole
+
+### Nach Ressourcenverbrauch sortieren
+
+    kali >top
+
+### Prozesspriorität verwalten
+Die Prioritäten gehen von **-20** bis **19**, wobei -20 am **höchtsten** und **19** am tiefsten priorisiert ist
+
+Mit folgendem Befehl wird ein Prozess mit entsprechender Priorität gestartet. Dies erhöht die Priorität der Prozesses um 10 (Setzt es **nicht** auf -10!!!)
+
+    kali >nice  -n -10 /bin/slowprocess
+
+Folgender Befehl ändert die Priorität eines laufenden Prozesses. Die Priorität wird fix gesetzt nicht wie oben addiert oder subtrahiert!
+
+    kali >renice 15 6996
+
+### Prozess töten
+Folgender Befehl beendet und startet den Prozess neu:
+
+    kali >kill -1 6996
+
+Folgender Befhel beendet den Prozess sofort:
+
+    kali >kill -9 6996
+
+    kali >killall -9 zombieprocess
+
+### Prozess im Hintergrund laufen lassen
+
+    kali >leafpad newscript &
+
+Nun kann die Konsole weiterhin benutzt werden während leafpad geöffnet ist.
+
+### Prozess wieder in Vordergrund bringen
+
+    kali >fg 1234
+
+### Prozess schedulen
+
+    kali >at 7:20am
+    at >/root/myscanningscript
+
+## Userumgebungsvariablen verwalten
+
+### Variablen ansehen und modifizieren
+Alle **Standard** Variablen ansehen:
+
+    kali >env
+    XDG_VTNR=7
+    SSHAGENT_PID=922
+    XDG_SESSION_ID=2
+    XDG_GREETER_DATA_DIR=/var/lib/lightdm/data/root
+    GLADE_PIXMAP_PATH=:echo
+    TERM=xterm
+    SHELL=/bin/bash
+    --snip--
+    USER=root
+    --snip--
+    PATH=/usr/local/sbin :usr/local/bin:/usr/sbin:/sbin/bin
+    --snip--
+    HOME=/root
+    --snip--
+
+Alle Variablen ansehen:
+
+    kali >set | more
+    BASH=/bin/bash
+    BASHOPTS=checkwinsize:cmdlist:complete_fullquote:expand_aliases:extglob.....
+
+
+    Managing User Environment Variables   73
+
+    BASH_ALIASES=()
+    BASH_ARGC=()
+    BASH_ARGV=()
+    --snip--
+
+Für bestimmte Variablen filtern:
+
+    kali >set | grep
+    HISTSIZE=1000
+
+Variable für eine Session ändern:
+
+    kali >HISTSIZE=0
+
+Variable permanent ändern:
+
+    kali >HISTSIZE=1000
+    kali >export HISTSIZE
+
+### Terminal Fenster ändern
+
+    kali >PS1="World's Best Hacker
+    World's Best Hacker: #
+    kali >export PS1
+
+    kali >export PS1='C:\w> '
+    C:/tmp>
+
+### PATH Variable ändern
+PATH Variable ansehen:
+
+    kali >echo $PATH
+    /usr/local/sbin:usr/local/bin:/usr/sbin:/sbin/bin
+
+Der PATH Variable etwas hinzufügen
+
+    kali >PATH=$PATH:/root/newhackingtool
+
+### Eine Userdefinierte Variable erstellen
+
+    kali >MYNEWVARIABLE="Hacking is the most valuable skill set in the 21st century"
+
+    kali >echo $MYNEWVARIABLE
+    Hacking is the most valuable skill set in the 21st century
+
+Diese Variable kann wie folgt wieder gelöscht werden:
+
+    kali >unset MYNEWVARIABLE
+
+## Bash Scripting
+
+### Beispielskripte
+Skript mit User Input:
+
+    #! /bin/bash
+    # This is your second bash script. In this one, you prompt /
+    # the user for input, place the input in a variable, and /
+    # display the variable contents in a string.
+    echo "What is your name?"
+    read name
+    echo "What chapter are you on in Linux Basics for Hackers?"
+    read chapter
+    echo "Welcome" $name "to Chapter" $chapter "of Linux Basics for Hackers!"
+
+Einfaches Port-Scanner Skript:
+
+    #! /bin/bash
+    # This script is designed to find hosts with MySQL installed
+    nmap w-sT 192.168.181.0/24 x-p 3306 y>/dev/null z-oG MySQLscan
+    cat MySQLscan | grep open > MySQLscan2 |
+    cat MySQLscan2   
+
+Verbessertes Scanner Skript:
+
+    #! /bin/bash
+    echo "Enter the starting IP address : "
+    read FirstIP
+    echo "Enter the last octet of the last IP address : "
+    read LastOctetIP
+    echo "Enter the port number you want to scan for : "
+    read port
+    nmap -sT $FirstIP-$LastOctetIP -p $port >/dev/null -oG MySQLscan
+    cat MySQLscan | grep open > MySQLscan2
+    cat MySQLscan2
+
+### Skripte ausführen
+
+    kali >./MySQLscannerAdvanced.sh 
+
+### Nützliche Kommandos für bash
+
+| Command | Function |
+|---------|----------|
+| : | Returns 0 or true
+| . | Executes a shell script
+| bg | Puts a job in the background
+| break | Exits the current loop
+| cd | Changes directory
+| continue | Resumes the current loop
+| echo | Displays the command arguments
+| eval | Evaluates the following expression 
+| exec | Executes the following command without creating a new process
+| exit | Quits the shell
+| export | Makes a variable or function available to other programs 
+| fg | Brings a job to the foreground
+| getopts | Parses arguments to the shell script
+| jobs | Lists background (bg) jobs
+| pwd | Displays the current directory
+| read | Reads a line from standard input
+| readonly | Declares as variable as read-only
+| set | Lists all variables
+| shift | Moves the parameters to the left
+| test | Evaluates arguments
+| [ | Performs a conditional test
+| times | Prints the user and system times
+| trap | Traps a signal
+| type | Displays how each argument would be interpreted as a command
+| umask | Changes the default permissions for a new file
+| unset | Deletes values from a variable or function
+| wait | Waits for a background process to complete
 
 ## Kompression
 
@@ -634,3 +939,42 @@ Ein Modul zum Kernel hinzufügen:
 Ein Modul aus dem Kernel entfernen:
 
     kali >modprobe -r <module to be removed>
+
+## Jop Scheduling
+
+### Jops automatisch starten
+Jops müssen innerhalbt eines Files angegeben werden. Diese File kann wie folg geöffnet werden:
+
+    kali >crontab -e
+    Select an editor. To change later, run 'select-editor'.
+    1. /bin/nano   <----easiest
+    2. /usr/bin/mcedit
+    3. /usr/bin/vim.basic
+    4. /usr/bin/vim.gtk
+    5. /usr/bin/vim.tiny
+    Choose 1-5 [1]:
+
+Besser wäre ein bevorzugter editor zu nutzuen mit:
+
+    kali >leafpad /etc/crontab
+
+Die Jops müssen anschliessen wie folg in diesem File eingetragen werden:
+
+    # m h dom mon dow user command
+    17 * * * * root cd / && run-parts --report /etc/cron.hourly
+    25 6 * * * root test -x /usr/sbin/anacron II ( cd / && run-parts
+    47 6 15,30 * 7 root test -x /usr/sbin/anacron II ( cd / && run-parts
+    52 6 1 * 0,6 root test -x /usr/sbin/anacron II ( cd / && run-parts
+    #
+
+* Unter m kommt die Start Minute (Bei 2:30 = 30)
+* Unter h kommt die Start Stunde (Bei 2:30 = 2)
+* Unter dow die Wochentage (0-6 = Sonntag bis Samstag)
+* dom = Day of Month (bestimmter Tag im Monat)
+* Mon = Month (bestimmter Monat 0-11)
+* Ein * bedeutet **any**
+
+### Jops bei Betriebssystemstart ausführen
+Services können mithilfe des rc.d Skript bei Betriebssystemstart mitgestartet werden. Dafür ist das update-rc.d Kommando gedacht:
+
+    kali >update-rc.d <name of the script or service> <remove|defaults|disable|enable>
