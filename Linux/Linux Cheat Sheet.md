@@ -209,10 +209,10 @@ Filtert ein Textinput nach einem gewissen Suchbegriff
 ##  5. <a name='FilesundOrdnermodifizieren'></a>Files und Ordner modifizieren
 
 ###  5.1. <a name='Fileerstellen'></a>File erstellen
-> kali >cat > hackingskills 
-Hacking is the most valuable skill set of the 21st century!
+    kali >cat > hackingskills 
+    Hacking is the most valuable skill set of the 21st century!
 
-> kali >touch newfile
+    kali >touch newfile
 
 ###  5.2. <a name='Fileanschauen'></a>File anschauen
 kali >cat hackingskills 
