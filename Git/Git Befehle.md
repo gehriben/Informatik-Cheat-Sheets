@@ -9,6 +9,9 @@
     #Neues Git Repository ziehen
     git clone https://github.engineering.zhaw.ch/widtmbri/TaskList.git
     
+    #Neues Git Repository erstellen
+    git init
+    
     #origin prüfen
     git remote -v
 
