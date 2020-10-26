@@ -200,6 +200,7 @@ Ist einiges mächtiger und bietet viele Parameter
 
 ###  4.5. <a name='grep-Befehl'></a>grep - Befehl
 Filtert ein Textinput nach einem gewissen Suchbegriff
+
     kali >ps aux | grep apache2 
     root  4851 0.2 0.7 37548  7668 ?  Ss  10:14  0:00   /usr/sbin/apache2 -k start 
     root  4906 0.0 0.4 37572  4228 ?  S   10:14  0:00   /usr/sbin/apache2 -k start 
