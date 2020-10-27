@@ -33,6 +33,7 @@ Ein Cheat Sheet für diverse Linux Befehle
 	6.4. [Text mit grep Filtern](#TextmitgrepFiltern) <br>
 	6.5. [Suchen und ersetzen](#Suchenundersetzen) <br>
 	6.6. [Files mit more und less anschauen](#Filesmitmoreundlessanschauen) <br>
+	6.7. [Unterschiede in Files erkennen mit diff](#diff) <br>
 7. [Netwerkanalyse](#Netwerkanalyse) <br>
 	7.1. [Netzwerkinformationen anzeigen](#Netzwerkinformationenanzeigen) <br>
 	7.2. [Wirelessgerät kontrollieren](#Wirelessgertkontrollieren) <br>
@@ -315,7 +316,11 @@ Less ist ähnlich wie more lässt einen aber noch filtern (hier nach `output`)
      Options: --enable-gre --enable-mpls --enable-targetbased 
        --enable-ppm --enable-perfprofiling enable-zlib --enable-active 
     -response --enable-normalizer --enable-reload --enable-react 
-       /output 
+       /output
+ 
+###  6.6. <a name='diff'></a>Unterschiede in Files erkennen mit diff
+	
+	diff text1.txt text2.txt
 
 ##  7. <a name='Netwerkanalyse'></a>Netwerkanalyse
 
