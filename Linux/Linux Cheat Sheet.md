@@ -55,7 +55,7 @@ Ein Cheat Sheet für diverse Linux Befehle
 	9.2. [Besitzerrechte an Gruppe vergeben](#BesitzerrechteanGruppevergeben) <br>
 	9.3. [Berechtigungen prüfen](#Berechtigungenprfen) <br>
 	9.4. [Berechtigungen ändern](#Berechtigungenndern) <br>
-	9.5. [Passwort Hash generierein für passwd](#Hashgenerieren) <br>
+	9.5. [Passwort Hash generieren für passwd](#Hashgenerieren) <br>
 10. [Prozess Management](#ProzessManagement) <br>
 	10.1. [Prozesse anzeigen](#Prozesseanzeigen) <br>
 	10.2. [Nach Prozessnamen filtern](#NachProzessnamenfiltern) <br>
