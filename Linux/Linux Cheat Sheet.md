@@ -55,6 +55,7 @@ Ein Cheat Sheet für diverse Linux Befehle
 	9.2. [Besitzerrechte an Gruppe vergeben](#BesitzerrechteanGruppevergeben) <br>
 	9.3. [Berechtigungen prüfen](#Berechtigungenprfen) <br>
 	9.4. [Berechtigungen ändern](#Berechtigungenndern) <br>
+	9.5. [Passwort Hash generierein für passwd](#Hashgenerieren) <br>
 10. [Prozess Management](#ProzessManagement) <br>
 	10.1. [Prozesse anzeigen](#Prozesseanzeigen) <br>
 	10.2. [Nach Prozessnamen filtern](#NachProzessnamenfiltern) <br>
@@ -446,6 +447,10 @@ Es gibt dabei verschiedene Arten von Repositorys:
 | 101 | 5 | r-x |
 | 110 | 6 | rw- |
 | 111 | 7 | rwx |
+
+###  9.5. <a name='Hashgenerieren'></a>Passwordhash generierein für passwd
+
+	openssl passwd -1 -salt [salt] [password]	
 
 ##  10. <a name='ProzessManagement'></a>Prozess Management
 
