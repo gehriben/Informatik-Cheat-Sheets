@@ -33,6 +33,7 @@ Ein Cheat Sheet für diverse Linux Befehle
 	6.4. [Text mit grep Filtern](#TextmitgrepFiltern) <br>
 	6.5. [Suchen und ersetzen](#Suchenundersetzen) <br>
 	6.6. [Files mit more und less anschauen](#Filesmitmoreundlessanschauen) <br>
+	6.7. [Unterschiede in Files erkennen mit diff](#diff) <br>
 7. [Netwerkanalyse](#Netwerkanalyse) <br>
 	7.1. [Netzwerkinformationen anzeigen](#Netzwerkinformationenanzeigen) <br>
 	7.2. [Wirelessgerät kontrollieren](#Wirelessgertkontrollieren) <br>
@@ -54,6 +55,7 @@ Ein Cheat Sheet für diverse Linux Befehle
 	9.2. [Besitzerrechte an Gruppe vergeben](#BesitzerrechteanGruppevergeben) <br>
 	9.3. [Berechtigungen prüfen](#Berechtigungenprfen) <br>
 	9.4. [Berechtigungen ändern](#Berechtigungenndern) <br>
+	9.5. [Passwort Hash generieren für passwd](#Hashgenerieren) <br>
 10. [Prozess Management](#ProzessManagement) <br>
 	10.1. [Prozesse anzeigen](#Prozesseanzeigen) <br>
 	10.2. [Nach Prozessnamen filtern](#NachProzessnamenfiltern) <br>
@@ -200,6 +202,7 @@ Ist einiges mächtiger und bietet viele Parameter
 
 ###  4.5. <a name='grep-Befehl'></a>grep - Befehl
 Filtert ein Textinput nach einem gewissen Suchbegriff
+
     kali >ps aux | grep apache2 
     root  4851 0.2 0.7 37548  7668 ?  Ss  10:14  0:00   /usr/sbin/apache2 -k start 
     root  4906 0.0 0.4 37572  4228 ?  S   10:14  0:00   /usr/sbin/apache2 -k start 
@@ -314,7 +317,11 @@ Less ist ähnlich wie more lässt einen aber noch filtern (hier nach `output`)
      Options: --enable-gre --enable-mpls --enable-targetbased 
        --enable-ppm --enable-perfprofiling enable-zlib --enable-active 
     -response --enable-normalizer --enable-reload --enable-react 
-       /output 
+       /output
+ 
+###  6.6. <a name='diff'></a>Unterschiede in Files erkennen mit diff
+	
+	diff text1.txt text2.txt
 
 ##  7. <a name='Netwerkanalyse'></a>Netwerkanalyse
 
@@ -440,6 +447,10 @@ Es gibt dabei verschiedene Arten von Repositorys:
 | 101 | 5 | r-x |
 | 110 | 6 | rw- |
 | 111 | 7 | rwx |
+
+###  9.5. <a name='Hashgenerieren'></a>Passwordhash generierein für passwd
+
+	openssl passwd -1 -salt [salt] [password]	
 
 ##  10. <a name='ProzessManagement'></a>Prozess Management
 
